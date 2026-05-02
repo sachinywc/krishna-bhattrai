@@ -1,31 +1,29 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="w-full px-6 py-16 lg:px-12 lg:py-24">
+    <section className="w-full px-6 pt-24 pb-16 lg:px-12 lg:pt-32 lg:pb-24">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
-            {/* Label */}
             <p className="text-xs font-medium tracking-[0.2em] text-gray-500 uppercase">
-              Founder · Conservationist · Tiger Country Expert
+              Founder & Owner · Jungle Heaven
             </p>
-
-            {/* Heading */}
+            
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#1A1A1A] leading-[1.15]">
-              Building Nepal&apos;s Most Authentic Wilderness Experience
+              Welcome to Bardia&apos;s Gateway to the Wild
             </h1>
-
-            {/* Description */}
-            <p className="text-sm lg:text-base text-gray-600 leading-relaxed max-w-md">
-              With over 12 years deeply rooted in the Bardia jungle, I bridge the gap between luxury eco-tourism and raw wildlife conservation. Protecting the untamed, one journey at a time.
+            
+            <p className="text-base text-gray-600 leading-relaxed max-w-lg">
+              Discover the untamed heart of Nepal. From the majestic Bengal Tigers to the rare One-Horned Rhinoceros, join me in a sanctuary where conservation meets luxury hospitality.
             </p>
 
-            {/* Buttons */}
             <div className="flex flex-wrap gap-4">
-              <button className="px-6 py-3 bg-[#1A1A1A] text-white text-xs font-medium tracking-[0.15em] hover:bg-[#2A2A2A] transition-colors">
-                MY STORY
+              <button className="px-8 py-4 bg-[#1B3B2F] text-white text-xs font-bold tracking-[0.15em] hover:bg-[#2A4A3F] transition-colors">
+                DISCOVER MY STORY →
               </button>
-              <button className="px-6 py-3 border border-[#1A1A1A] text-[#1A1A1A] text-xs font-medium tracking-[0.15em] hover:bg-[#1A1A1A] hover:text-white transition-colors">
+              <button className="px-8 py-4 border-2 border-[#1A1A1A] text-[#1A1A1A] text-xs font-bold tracking-[0.15em] hover:bg-[#1A1A1A] hover:text-white transition-colors">
                 EXPLORE JUNGLE HEAVEN
               </button>
             </div>
@@ -33,11 +31,19 @@ export default function Hero() {
 
           {/* Right Image */}
           <div className="relative">
-            <div className="aspect-square w-full max-w-md mx-auto bg-gray-200 rounded-sm overflow-hidden shadow-lg">
-              {/* Placeholder for portrait - replace with actual image */}
-              <div className="w-full h-full bg-linear-to-b from-gray-300 to-gray-400 flex items-center justify-center">
-                <span className="text-gray-500 text-sm">Portrait Image</span>
-              </div>
+            <div className="aspect-4/5 w-full max-w-md mx-auto relative">
+              <Image
+                src="/hero-portrait.jpg"
+                alt="Krishna Bhattari"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            {/* Badge */}
+            <div className="absolute bottom-8 left-8 bg-[#8B6F4E] text-white px-6 py-3">
+              <p className="text-[10px] tracking-[0.2em] uppercase mb-1">Stewardship</p>
+              <p className="text-lg font-serif font-bold">Since 2008</p>
             </div>
           </div>
         </div>

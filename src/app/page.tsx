@@ -1,9 +1,11 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
-import Preserving from "@/components/sections/Preserving";
-import Podcast from "@/components/sections/Podcast";
-import Partners from "@/components/sections/Partners";
+import MissionVision from "@/components/sections/MissionVision";
+import Packages from "../components/sections/Packages";
+import Hospitality from "@/components/sections/Hospitality";
+import Gallery from "@/components/sections/Gallery";
+import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -12,9 +14,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Stats />
-      <Preserving />
-      <Podcast />
-      <Partners />
+      <MissionVision />
+      <Packages />
+      <Hospitality />
+      <Gallery />
+      <Contact />
       <Footer />
     </>
   );

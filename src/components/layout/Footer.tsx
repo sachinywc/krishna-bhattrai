@@ -1,65 +1,49 @@
 export default function Footer() {
+  const links = {
+    Links: ["About Us", "Conservation Ethics", "Bardia National Park"],
+    Support: ["Privacy Policy", "Bookings", "Contact"]
+  };
+
   return (
     <footer className="w-full px-6 py-12 lg:px-12 border-t border-[#E8E0D5]">
       <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Left Column */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#1A1A1A]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-[#1A1A1A]">
               KRISHNA BHATTARI
             </h3>
-            <p className="text-xs text-gray-500 leading-relaxed max-w-xs">
-              Dedicated to preserving the wilderness of Bardia National Park and honoring a new generation of conservation-minded travelers.
+            <p className="text-xs text-gray-600 leading-relaxed max-w-xs">
+              Stewardship in the heart of Bardia. Dedicated to preserving the majesty of Nepal&apos;s wild west through sustainable hospitality.
             </p>
           </div>
 
-          {/* Middle Column - Explore */}
-          <div className="space-y-4">
-            <h4 className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#1A1A1A]">
-              Explore
-            </h4>
-            <ul className="space-y-2">
-              {["Editorial Journal", "Archive", "Conservation Ethics", "Field Notes"].map((item, index) => (
-                <li key={index}>
-                  <a href="#" className="text-xs text-gray-500 hover:text-[#1A1A1A] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Column - Connect */}
-          <div className="space-y-4">
-            <h4 className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#1A1A1A]">
-              Connect
-            </h4>
-            <ul className="space-y-2">
-              {["Instagram", "LinkedIn", "Contact"].map((item, index) => (
-                <li key={index}>
-                  <a href="#" className="text-xs text-gray-500 hover:text-[#1A1A1A] transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-12">
+            {Object.entries(links).map(([title, items]) => (
+              <div key={title}>
+                <h4 className="text-[10px] font-bold tracking-[0.15em] uppercase text-gray-400 mb-4">
+                  {title}
+                </h4>
+                <ul className="space-y-2">
+                  {items.map((item) => (
+                    <li key={item}>
+                      <a href="#" className="text-xs text-gray-600 hover:text-[#1A1A1A] transition-colors">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[#E8E0D5]">
+        {/* Bottom */}
+        <div className="pt-8 border-t border-[#E8E0D5]">
           <p className="text-[10px] text-gray-400 tracking-wide">
-            © 2024 KRISHNA BHATTARI. PROTECTING THE UNTAMED.
+            © {new Date().getFullYear()} KRISHNA BHATTARI. STEWARDSHIP IN THE HEART OF BARDIA.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-[10px] text-gray-400 hover:text-[#1A1A1A] transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="text-[10px] text-gray-400 hover:text-[#1A1A1A] transition-colors">
-              Terms
-            </a>
-          </div>
         </div>
       </div>
     </footer>
