@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -13,8 +15,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Krishna Bhattari",
-  description: "Building Nepal's Most Authentic Wilderness Experience",
+  title: "Krishna Bhattari | Jungle Heaven - Bardia's Conservation Expert",
+  description: "Discover Nepal's most authentic wilderness experience with Krishna Bhattari. Eco-tourism, tiger conservation, and sustainable travel in Bardia National Park.",
 };
 
 export default function RootLayout({
@@ -25,7 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#F5F0EB] text-[#1A1A1A]`}>
-        {children}
+        <Navbar />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

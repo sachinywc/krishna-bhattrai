@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F0EB] border-b border-[#E8E0D5]">
@@ -12,9 +14,12 @@ export default function Navbar() {
         </div>
 
         {/* Book Button */}
-        <button className="px-6 py-2 bg-[#1B3B2F] text-white text-xs font-medium tracking-wide hover:bg-[#2A4A3F] transition-colors">
+        <Link
+          href="/#contact"
+          className="px-6 py-2 bg-[#1B3B2F] text-white text-xs font-medium tracking-wide hover:bg-[#2A4A3F] transition-colors"
+        >
           BOOK YOUR STAY
-        </button>
+        </Link>
       </div>
     </nav>
   );
