@@ -37,18 +37,20 @@ export default function Hero() {
           </div>
 
           {/* Right Image */}
-          <div className="relative">
-            <div className="aspect-4/5 w-full max-w-md mx-auto relative">
+          <div className="relative w-full">
+            <div className="aspect-[4/5] w-full max-w-md mx-auto relative overflow-hidden bg-gray-200">
               <Image
                 src="/hero-portrait.jpg"
                 alt="Krishna Bhattari"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover"
                 priority
+                quality={85}
               />
             </div>
             {/* Badge */}
-            <div className="absolute bottom-8 left-8 bg-[#8B6F4E] text-white px-6 py-3">
+            <div className="absolute bottom-8 left-8 bg-[#8B6F4E] text-white px-6 py-3 shadow-lg">
               <p className="text-[10px] tracking-[0.2em] uppercase mb-1">Stewardship</p>
               <p className="text-lg font-serif font-bold">Since 2008</p>
             </div>
