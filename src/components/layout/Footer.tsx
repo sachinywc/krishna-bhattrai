@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Camera, Share2, Sprout, ArrowRight } from "lucide-react";
+import { Camera, Share2, Sprout } from "lucide-react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -10,203 +10,186 @@ export default function Footer() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your newsletter subscription logic here
-    console.log("Subscribed:", email);
+    // Add newsletter API call here
+    console.log("Newsletter signup:", email);
     setSubscribed(true);
     setEmail("");
-    
-    // Reset success message after 5 seconds
     setTimeout(() => setSubscribed(false), 5000);
   };
 
   return (
-    <footer className="w-full bg-[#F5F0EB] px-6 py-16 lg:px-12 lg:py-20">
+    <footer className="w-full bg-[#FAFAF8] px-6 py-16 lg:px-12 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
           
-          {/* Left Column - Brand */}
-          <div className="lg:col-span-3 space-y-6">
-            <h3 className="text-lg font-serif font-bold tracking-wide text-[#1A1A1A] uppercase">
-              KRISHNA BHATTARI
-            </h3>
-            
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Dedicated to preserving the wilderness of Bardia National Park and fostering a new generation of conservation-minded travelers.
-            </p>
+          {/* Left Column - Brand + Newsletter */}
+          <div className="space-y-8">
+            {/* Brand */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-serif font-bold tracking-wide text-[#0A1F15] uppercase">
+                KRISHNA BHATTARI
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
+                Dedicated to preserving the wilderness of Bardia National Park and fostering a new generation of conservation-minded travelers.
+              </p>
+            </div>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex items-center gap-4">
               <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 text-gray-600 hover:text-[#1B3B2F] transition-colors"
+                href="#" 
+                className="p-1 text-[#0A1F15] hover:text-[#1B3B2F] transition-colors"
                 aria-label="Instagram"
               >
                 <Camera className="w-5 h-5" />
               </a>
-              
               <a 
                 href="#" 
-                className="p-2 text-gray-600 hover:text-[#1B3B2F] transition-colors"
+                className="p-1 text-[#0A1F15] hover:text-[#1B3B2F] transition-colors"
                 aria-label="Share"
               >
                 <Share2 className="w-5 h-5" />
               </a>
-              
               <a 
                 href="#" 
-                className="p-2 text-gray-600 hover:text-[#1B3B2F] transition-colors"
+                className="p-1 text-[#0A1F15] hover:text-[#1B3B2F] transition-colors"
                 aria-label="Conservation"
               >
                 <Sprout className="w-5 h-5" />
               </a>
             </div>
-          </div>
 
-          {/* Middle Column - Newsletter */}
-          <div className="lg:col-span-5 space-y-6">
-            <h4 className="text-2xl lg:text-3xl font-serif font-bold text-[#1A1A1A]">
-              Join the Field Journal
-            </h4>
-            
-            <p className="text-sm text-gray-600 leading-relaxed max-w-md">
-              Get monthly dispatches on wildlife sightings, conservation updates, and jungle stories.
-            </p>
-
-            {/* Newsletter Form */}
-            <form onSubmit={handleSubscribe} className="pt-2">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email Address"
-                    required
-                    className="w-full px-4 py-3 bg-transparent border-b border-[#D4C4B0] text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-[#1B3B2F] transition-colors"
-                  />
-                </div>
+            {/* Newsletter */}
+            <div className="space-y-4 pt-2">
+              <h4 className="text-xs font-semibold tracking-[0.15em] text-[#0A1F15] uppercase">
+                JOIN THE FIELD JOURNAL
+              </h4>
+              
+              <form onSubmit={handleSubscribe} className="space-y-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email Address"
+                  required
+                  className="w-full px-4 py-3 bg-white border border-[#E0DDD8] text-[#0A1F15] placeholder-gray-400 text-sm focus:outline-none focus:border-[#0A1F15] transition-colors"
+                />
                 
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-[#1B3B2F] text-white text-xs font-bold tracking-[0.15em] hover:bg-[#2A4A3F] transition-colors flex items-center justify-center gap-2 group"
+                  className="w-full px-6 py-3 bg-[#0A1F15] text-white text-xs font-bold tracking-[0.15em] hover:bg-[#1B3B2F] transition-colors"
                 >
                   SUBSCRIBE
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-              </div>
+              </form>
 
               {/* Success Message */}
               {subscribed && (
-                <p className="mt-3 text-sm text-[#1B3B2F] font-medium">
-                  ✨ Thank you for subscribing! Check your inbox soon.
+                <p className="text-xs text-[#1B3B2F] font-medium">
+                  ✨ Welcome to the Field Journal!
                 </p>
               )}
-            </form>
+            </div>
           </div>
 
-          {/* Right Column - Links */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-8 lg:gap-12">
-            {/* Explore Column */}
-            <div className="space-y-4">
-              <h5 className="text-xs font-bold tracking-[0.15em] text-[#1A1A1A] uppercase">
-                EXPLORE
-              </h5>
-              
-              <ul className="space-y-3">
-                <li>
-                  <a 
-                    href="/journal" 
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Editorial Journal
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    href="/archive"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Archive
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/conservation"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Conservation Ethics
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/field-notes"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Field Notes
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Middle Column - Explore */}
+          <div className="space-y-6">
+            <h5 className="text-xs font-bold tracking-[0.15em] text-[#0A1F15] uppercase">
+              EXPLORE
+            </h5>
+            
+            <ul className="space-y-3">
+              <li>
+                <Link 
+                  href="/journal" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Editorial Journal
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/archive" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Archive
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/conservation" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Conservation Ethics
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/field-notes" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Field Notes
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-            {/* Connect Column */}
-            <div className="space-y-4">
-              <h5 className="text-xs font-bold tracking-[0.15em] text-[#1A1A1A] uppercase">
-                CONNECT
-              </h5>
-              
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/#contact"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Contact Me
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/booking"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Expedition Booking
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/media-kit"
-                    className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
-                  >
-                    Media Kit
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Right Column - Connect */}
+          <div className="space-y-6">
+            <h5 className="text-xs font-bold tracking-[0.15em] text-[#0A1F15] uppercase">
+              CONNECT
+            </h5>
+            
+            <ul className="space-y-3">
+              <li>
+                <Link 
+                  href="/#contact" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Contact Me
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/booking" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Expedition Booking
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/media-kit" 
+                  className="text-sm text-gray-600 hover:text-[#0A1F15] transition-colors font-medium"
+                >
+                  Media Kit
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#E8E0D5]">
+        <div className="pt-8 border-t border-[#E8E6E1]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-500 italic tracking-wide">
+            <p className="text-xs text-gray-400 italic tracking-wide">
               © 2024 KRISHNA BHATTARI. PROTECTING THE UNTAMED.
             </p>
             
             <div className="flex items-center gap-8">
-              <a 
+              <Link 
                 href="/privacy" 
-                className="text-xs text-gray-400 hover:text-[#1A1A1A] tracking-wide transition-colors"
+                className="text-xs text-gray-400 hover:text-[#0A1F15] tracking-wide transition-colors uppercase"
               >
-                PRIVACY POLICY
-              </a>
-              <a 
+                Privacy Policy
+              </Link>
+              <Link 
                 href="/terms" 
-                className="text-xs text-gray-400 hover:text-[#1A1A1A] tracking-wide transition-colors"
+                className="text-xs text-gray-400 hover:text-[#0A1F15] tracking-wide transition-colors uppercase"
               >
-                TERMS OF SERVICE
-              </a>
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>
