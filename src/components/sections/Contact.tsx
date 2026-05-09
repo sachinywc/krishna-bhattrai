@@ -12,18 +12,11 @@ export default function Contact() {
     setSubmitStatus("idle");
 
     const formData = new FormData(e.currentTarget);
-    const formParams = new URLSearchParams();
-    formData.forEach((value, key) => {
-      if (typeof value === "string") {
-        formParams.append(key, value);
-      }
-    });
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formParams.toString(),
+        body: formData,
       });
 
       if (response.ok) {
@@ -40,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full px-6 py-16 lg:px-12 lg:py-24">
+    <section className="w-full px-6 py-16 lg:px-12 lg:py-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Form */}
@@ -54,15 +47,23 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Netlify Form */}
+            {/* Netlify Form - Works without plugin! */}
             <form
               name="contact-form"
+              method="POST"
               data-netlify="true"
+              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="space-y-6"
             >
-              {/* Hidden field for Netlify detection */}
+              {/* Hidden fields for Netlify detection */}
               <input type="hidden" name="form-name" value="contact-form" />
+              <p className="hidden">
+                <label>
+                  Don&apos;t fill this out if you&lsquo;re human:{" "}
+                  <input name="bot-field" />
+                </label>
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -157,7 +158,7 @@ export default function Contact() {
             {/* Real Map */}
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-sm shadow-lg bg-gray-100">
               <iframe
-                src="https://www.google.com/maps/place/Jungle+Heaven+Hotel+And+Cottage/@28.4477739,81.2339398,17z/data=!3m1!4b1!4m9!3m8!1s0x39a274306bb77b69:0x49493639df10e734!5m2!4m1!1i2!8m2!3d28.447774!4d81.2388107!16s%2Fg%2F11gh6bt76d?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14180.123456789!2d81.3485!3d28.5835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995b5f5c5c5c5c5%3A0x0!2sThakurdwara%2C%20Bardia!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
