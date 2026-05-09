@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Camera, Share2, Sprout, ArrowRight } from "lucide-react";
 
 export default function Footer() {
@@ -124,28 +125,28 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="/archive" 
+                  <Link
+                    href="/archive"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Archive
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="/conservation" 
+                  <Link
+                    href="/conservation"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Conservation Ethics
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="/field-notes" 
+                  <Link
+                    href="/field-notes"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Field Notes
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -158,28 +159,28 @@ export default function Footer() {
               
               <ul className="space-y-3">
                 <li>
-                  <a 
-                    href="/#contact" 
+                  <Link
+                    href="/#contact"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Contact Me
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="/booking" 
+                  <Link
+                    href="/booking"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Expedition Booking
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="/media-kit" 
+                  <Link
+                    href="/media-kit"
                     className="text-sm text-gray-600 hover:text-[#1B3B2F] transition-colors"
                   >
                     Media Kit
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

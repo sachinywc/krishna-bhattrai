@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
 
           {/* Hero Image */}
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm">
+          <div className="relative aspect-16/10 w-full overflow-hidden rounded-sm">
             <Image
               src="/about/hero-portrait.jpg"
               alt="Krishna Bhattari standing in Thakurdwara's forests"
@@ -239,7 +239,7 @@ export default function AboutPage() {
               "Preserving and promoting the richness of Tharu culture."
             ].map((item, index) => (
               <li key={index} className="flex items-start gap-4">
-                <span className="w-8 h-px bg-[#8B6F4E] mt-2 flex-shrink-0" />
+                <span className="w-8 h-px bg-[#8B6F4E] mt-2 shrink-0" />
                 <span className="text-base text-gray-700 leading-relaxed">
                   {item}
                 </span>
@@ -284,7 +284,7 @@ export default function AboutPage() {
             </div>
 
             {/* Row 2: 1 wide image */}
-            <div className="relative aspect-[16/9] overflow-hidden rounded-sm">
+            <div className="relative aspect-video overflow-hidden rounded-sm">
               <Image
                 src="/about/moments/tharu-dance.jpg"
                 alt="Tharu cultural dance performance"
@@ -314,7 +314,7 @@ export default function AboutPage() {
             </div>
 
             {/* Row 4: 1 wide image */}
-            <div className="relative aspect-[16/9] overflow-hidden rounded-sm">
+            <div className="relative aspect-video overflow-hidden rounded-sm">
               <Image
                 src="/about/moments/lodge-exterior.jpg"
                 alt="Jungle Heaven lodge exterior"
