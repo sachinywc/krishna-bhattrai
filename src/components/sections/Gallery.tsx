@@ -27,13 +27,15 @@ export default function Gallery() {
           {images.map((img, index) => (
             <div 
               key={index} 
-              className={`relative overflow-hidden ${img.span || ''}`}
+              className={`relative overflow-hidden bg-gray-200 ${img.span || ''}`}
             >
               <Image
-                src={img.src || `/placeholder-${index + 1}.jpg`}
+                src={img.src}
                 alt={img.alt}
                 fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover hover:scale-105 transition-transform duration-500"
+                quality={80}
               />
             </div>
           ))}

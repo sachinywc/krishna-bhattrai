@@ -42,15 +42,16 @@ export default function Hospitality() {
                     </div>
 
                     {/* Right Image */}
-                    {/* Right Image */}
-                    <div className="relative">
-                        <div className="aspect-4/3 w-full overflow-hidden rounded-sm shadow-xl">
+                    <div className="relative w-full">
+                        <div className="aspect-[4/3] w-full overflow-hidden rounded-sm shadow-xl bg-gray-200">
                             <Image
                                 src="/room.jpg"
                                 alt="Luxury Room at Jungle Heaven with King Bed and Jungle View"
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 className="object-cover"
                                 priority
+                                quality={85}
                             />
                         </div>
                     </div>
